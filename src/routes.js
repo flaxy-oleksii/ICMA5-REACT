@@ -21,6 +21,9 @@ const Tabs = React.lazy(() => import('./views/base/tabs/Tabs'))
 const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 
+// ICMA5
+const accounts = React.lazy(() => import('./views/icma5/accounts'))
+
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
 const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'))
@@ -71,6 +74,7 @@ const routes = [
   { path: '/base/progress', name: 'Progress', element: Progress },
   { path: '/base/spinners', name: 'Spinners', element: Spinners },
   { path: '/base/tabs', name: 'Tabs', element: Tabs },
+  { path: '/icma5/accounts', name: 'Accounts', element: accounts },
   { path: '/base/tables', name: 'Tables', element: Tables },
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
   { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },

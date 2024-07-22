@@ -48,6 +48,23 @@ const _nav = [
   },
   {
     component: CNavGroup,
+    name: 'ICMA5',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Accounts',
+        to: '/icma5/accounts',
+      },
+      {
+        component: CNavItem,
+        name: 'Select',
+        to: '/forms/select',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
     name: 'Base',
     to: '/base',
     icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,

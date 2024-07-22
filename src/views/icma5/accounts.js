@@ -14,6 +14,7 @@ import {
     CTableRow,
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
+import { useTranslation, Trans } from 'react-i18next';
 
 // import { useMemo } from "react";
 import {
@@ -25,85 +26,15 @@ import {
 const queryClient = new QueryClient()
 
 export const table_accounts = () => {
-    // const columns = useMemo(
-    //     () => [
-    //         {
-    //             accessorKey: "employeeId",
-    //             header: "ID",
-    //             footer: "ID",
-    //         },
-    //         {
-    //             accessorKey: "employeeName",
-    //             header: "Name",
-    //             footer: "Name",
-    //         },
-    //         {
-    //             accessorKey: "employeeDescription",
-    //             header: "Description",
-    //             footer: "Description",
-    //         },
-    //     ],
-    //     []
-    // );
 
-    // const { data: serverData } = useQuery({
-    //     queryKey: ["accounts"],
-    //     queryFn: async () => {
-    //         // const result = await axios.get(props.path + "/accounts", {
-    //         const result = await axios.get("https://w3b7vnyrg9.execute-api.eu-central-1.amazonaws.com/prod/accounts", {
-    //             // headers: {
-    //             //     Authorization: localStorage.getItem("token"),
-    //             // },
-    //         });
-    //         return result.data;
-    //     },
-    // });
+    const { t } = useTranslation();
 
-    // const data = useMemo(() => serverData ?? [], [serverData]);
-
-    // const table = useReactTable({
-    //     columns,
-    //     data,
-    //     getCoreRowModel: getCoreRowModel(),
-    // });
-
-    // return (
-    //     <>
-    //         <table>
-    //             <thead>
-    //                 {table.getHeaderGroups().map((headerGroup) => (
-    //                     <tr key={headerGroup.id}>
-    //                         {headerGroup.headers.map((header) => (
-    //                             <th key={header.id}>
-    //                                 {flexRender(
-    //                                     header.column.columnDef.header,
-    //                                     header.getContext()
-    //                                 )}
-    //                             </th>
-    //                         ))}
-    //                     </tr>
-    //                 ))}
-    //             </thead>
-    //             <tbody>
-    //                 {table.getRowModel().rows.map((row) => (
-    //                     <tr key={row.id}>
-    //                         {row.getVisibleCells().map((cell) => (
-    //                             <td key={cell.id}>
-    //                                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
-    //                             </td>
-    //                         ))}
-    //                     </tr>
-    //                 ))}
-    //             </tbody>
-    //         </table>
-    //     </>
-    // );
     return (
         <CRow>
             <CCol xs={12}>
                 <CCard className="mb-4">
                     <CCardHeader>
-                        <strong>Request</strong>
+                        <strong>{t('description.accounts')}</strong>
                     </CCardHeader>
                     <CCardBody>
                         <QueryClientProvider client={queryClient}>
@@ -115,7 +46,7 @@ export const table_accounts = () => {
             <CCol xs={12}>
                 <CCard className="mb-4">
                     <CCardHeader>
-                        <strong>Accounts</strong>
+                        <strong>Request</strong>
                     </CCardHeader>
                     <CCardBody>
                         <p className="text-body-secondary small">
@@ -159,6 +90,8 @@ export const table_accounts = () => {
 };
 
 function Example() {
+
+    const { t } = useTranslation();
     const { isPending, error, data } = useQuery({
         queryKey: ['repoData'],
         queryFn: () =>
@@ -167,7 +100,7 @@ function Example() {
             ),
     });
 
-    if (isPending) return 'Loading...';
+    if (isPending) return t('description.loading');
 
     if (error) return 'An error has occurred: ' + error.message;
 
@@ -184,24 +117,26 @@ function Example() {
 
     if (data.items.length > 0 && validColumns.length > 0) {
         return (
-            <CTable small hover>
-                <CTableHead>
-                    <CTableRow>
-                        {validColumns.map((key, index) => (
-                            <CTableHeaderCell key={index} scope="col">{key.toUpperCase()}</CTableHeaderCell>
-                        ))}
-                    </CTableRow>
-                </CTableHead>
-                <CTableBody>
-                    {data.items.map((item, index) => (
-                        <CTableRow key={index}>
-                            {validColumns.map((key, subIndex) => (
-                                <CTableDataCell key={subIndex}>{item[key]}</CTableDataCell>
+            <div style={{ overflowX: 'auto' }}>
+                <CTable small hover>
+                    <CTableHead>
+                        <CTableRow>
+                            {validColumns.map((key, index) => (
+                                <CTableHeaderCell key={index} scope="col">{key.toUpperCase()}</CTableHeaderCell>
                             ))}
                         </CTableRow>
-                    ))}
-                </CTableBody>
-            </CTable>
+                    </CTableHead>
+                    <CTableBody>
+                        {data.items.map((item, index) => (
+                            <CTableRow key={index}>
+                                {validColumns.map((key, subIndex) => (
+                                    <CTableDataCell key={subIndex}>{item[key]}</CTableDataCell>
+                                ))}
+                            </CTableRow>
+                        ))}
+                    </CTableBody>
+                </CTable>
+            </div>
         );
     } else {
         return 'No data available';

@@ -18,6 +18,7 @@ import CIcon from '@coreui/icons-react'
 import {
   cilBell,
   cilContrast,
+  cilLanguage,
   cilEnvelopeOpen,
   cilList,
   cilMenu,
@@ -27,8 +28,17 @@ import {
 
 import { AppBreadcrumb } from './index'
 import { AppHeaderDropdown } from './header/index'
+import { useTranslation, Trans } from 'react-i18next'
+
+const lngs = {
+  en: { nativeName: 'English' },
+  ua: { nativeName: 'Українська' }
+};
+
 
 const AppHeader = () => {
+
+  const { t, i18n } = useTranslation();
   const headerRef = useRef()
   const { colorMode, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
 
@@ -125,9 +135,39 @@ const AppHeader = () => {
               </CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
+        </CHeaderNav>
+        <CHeaderNav>
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
           </li>
+          <CDropdown variant="nav-item" placement="bottom-end">
+            <CDropdownToggle caret={false}>
+              {colorMode === 'dark' ? (
+                <CIcon icon={cilLanguage} size="lg" />
+              ) : colorMode === 'auto' ? (
+                <CIcon icon={cilContrast} size="lg" />
+              ) : (
+                <CIcon icon={cilLanguage} size="lg" />
+              )}
+            </CDropdownToggle>
+            <CDropdownMenu>
+
+              {Object.keys(lngs).map((lng) => (
+                <CDropdownItem
+                  active={colorMode === lng}  
+                  className="d-flex align-items-center"
+                  as="button"
+                  type="button"
+                >
+                  <CIcon className="me-2" icon={cilLanguage} size="lg" />
+                  <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
+                    {lngs[lng].nativeName}
+                  </button>
+                </CDropdownItem>
+              ))}
+
+            </CDropdownMenu>
+          </CDropdown>
           <AppHeaderDropdown />
         </CHeaderNav>
       </CContainer>

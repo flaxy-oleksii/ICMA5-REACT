@@ -154,15 +154,14 @@ const AppHeader = () => {
 
               {Object.keys(lngs).map((lng) => (
                 <CDropdownItem
+                  key={lng} // Add this line
                   active={colorMode === lng}  
                   className="d-flex align-items-center"
                   as="button"
                   type="button"
+                  onClick={() => i18n.changeLanguage(lng)}
                 >
-                  <CIcon className="me-2" icon={cilLanguage} size="lg" />
-                  <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
-                    {lngs[lng].nativeName}
-                  </button>
+                  <CIcon className="me-2" icon={cilLanguage} size="lg" /> {lngs[lng].nativeName}
                 </CDropdownItem>
               ))}
 

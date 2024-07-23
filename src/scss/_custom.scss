@@ -1,4 +1,19 @@
 // Here you can add other styles
-.container-xxl{
+.container-xxl {
     max-width: 100%;
 }
+
+.nav-justified > .nav-link, .nav-justified .nav-item {
+    border: 1px solid #3b3b3b;
+}
+// th {
+//     transform-origin: 50% 50%;
+//     transform: rotate(-90deg);
+// }
+
+// th {
+//     -webkit-transform: rotate(-90deg);
+//     -ms-transform: rotate(-90deg);
+//     transform: rotate(-90deg);
+//     font-size: larger;
+// }

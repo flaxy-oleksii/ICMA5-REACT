@@ -48,7 +48,7 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'ICMA5',
+    name: 'DynamoData',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     items: [
       {

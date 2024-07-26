@@ -4,7 +4,7 @@
 }
 
 .nav-justified > .nav-link, .nav-justified .nav-item {
-    border: 1px solid #3b3b3b;
+//border: 1px solid #3b3b3b;
 }
 // th {
 //     transform-origin: 50% 50%;
@@ -17,3 +17,12 @@
 //     transform: rotate(-90deg);
 //     font-size: larger;
 // }
+
+
+.toast-container.end-0 {
+    right: 10px !important;
+}
+
+.toast-container.bottom-0 {
+    bottom: 10px !important;
+}

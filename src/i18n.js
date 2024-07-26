@@ -29,7 +29,10 @@ i18n
             delete: 'Delete',
             add: 'Add',
             report: 'Report',
-            ppvText: 'Please provide a valid'
+            ppvText: 'Please provide a valid',
+            paginatorRowsPerPage: 'Rows per page',
+            paginatorRangeSeparatorText: 'of',
+            paginatorSelectAllText: 'All',
           },
           accounts: {
           }
@@ -46,7 +49,10 @@ i18n
             delete: 'Видалити',
             add: 'Додати',
             report: 'Звіт',
-            ppvText: 'Вкажіть коректне значенння для'
+            ppvText: 'Вкажіть коректне значенння для',
+            paginatorRowsPerPage: 'Рядків на сторінці',
+            paginatorRangeSeparatorText: 'з',
+            paginatorSelectAllText: 'Усі',
           },
           accounts: {
             CLSCHETID: 'Ліц.рах.',

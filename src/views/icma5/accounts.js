@@ -199,7 +199,7 @@ function AddEntryForm() {
             const formDataObj = {};
             formData.forEach((value, key) => {
                 if (value === 'on') {
-                    formDataObj[key] = form.elements[key].checked;
+                    formDataObj[key] = form.elements[key].checked ? "T" : "F";
                 } else {
                     formDataObj[key] = value;
                 }

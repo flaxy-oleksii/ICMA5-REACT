@@ -58,6 +58,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'Banks',
+        to: '/icma5/banks',
+      },
+      {
+        component: CNavItem,
         name: 'Sandbox1',
         to: '/icma5/sandbox1',
       },

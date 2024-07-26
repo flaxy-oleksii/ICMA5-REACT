@@ -23,6 +23,7 @@ i18n
           description: {
             part1: 'Edit <1>src/App.js</1> and save to reload.',
             accounts: 'Accounts',
+            banks: 'Banks',
             loading: 'Loading...',
             view: 'View',
             edit: 'Edit',
@@ -33,8 +34,19 @@ i18n
             paginatorRowsPerPage: 'Rows per page',
             paginatorRangeSeparatorText: 'of',
             paginatorSelectAllText: 'All',
+            actionColumn: 'Action',
+            addEntryBtn: 'Add entry',
           },
           accounts: {
+          },
+          banks: {
+            NKODB: 'Bank code',
+            CNAMEB: 'Bank name',
+            NPROPL: 'Payment sign(1-VZ)',
+            NSKOMS: 'Commission',
+            TABLE: 'Table',
+            ID: 'ID',
+            ID2: 'ID2',
           }
         }
       },
@@ -43,6 +55,7 @@ i18n
           description: {
             part1: 'Edit <1>src/App.js</1> and save to reload.',
             accounts: 'Користувачі',
+            banks: 'Банки',
             loading: 'Огляд записів...',
             view: 'Огляд',
             edit: 'Редагування',
@@ -53,6 +66,8 @@ i18n
             paginatorRowsPerPage: 'Рядків на сторінці',
             paginatorRangeSeparatorText: 'з',
             paginatorSelectAllText: 'Усі',
+            actionColumn: 'Дії',
+            addEntryBtn: 'Додати запис',
           },
           accounts: {
             CLSCHETID: 'Ліц.рах.',
@@ -144,6 +159,15 @@ i18n
             NKVTDOP: 'Дод.квт-год.',
             NKOLPR: 'К-ть прописаних',
             Actions: 'Дії',
+          },
+          banks: {
+            NKODB: 'Код банку',
+            CNAMEB: 'Найм.банку',
+            NPROPL: 'Озн.опл.(1-ВЗ)',
+            NSKOMS: 'Ком.збір',
+            TABLE: 'Таблиця',
+            ID: 'Ідентифікатор',
+            ID2: 'Ідентифікатор2',
           }
         }
       }

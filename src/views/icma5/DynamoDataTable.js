@@ -31,6 +31,7 @@ const DynamoDataTable = ({ dynamoTable }) => {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
     const [toast, setToast] = useState({ visible: false, message: '', type: '' });
+    const i18nCollection = dynamoTable.replace(/-/g, '_');
 
     const handleDeleteClick = (id) => {
         setDeleteId(id);
@@ -82,7 +83,7 @@ const DynamoDataTable = ({ dynamoTable }) => {
 
     const columns = Object.keys(headerItem).map((key) => {
         return {
-            name: t(dynamoTable + '.' + key.toUpperCase()),
+            name: t(i18nCollection + '.' + key.toUpperCase()),
             selector: (row) => row[key],
             sortable: true,
         };

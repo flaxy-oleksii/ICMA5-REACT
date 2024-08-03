@@ -24,6 +24,7 @@ const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 // ICMA5
 const accounts = React.lazy(() => import('./views/icma5/accounts'))
 const banks = React.lazy(() => import('./views/icma5/banks'))
+const subsidies_extra = React.lazy(() => import('./views/icma5/subsidies-extra'))
 const sandbox1 = React.lazy(() => import('./views/icma5/sandbox1'))
 
 // Buttons
@@ -78,6 +79,7 @@ const routes = [
   { path: '/base/tabs', name: 'Tabs', element: Tabs },
   { path: '/icma5/accounts', name: 'Accounts', element: accounts },
   { path: '/icma5/banks', name: 'Banks', element: banks },
+  { path: '/icma5/subsidies-extra', name: 'Subsidies-Extra', element: subsidies_extra },
   { path: '/icma5/sandbox1', name: 'Sandbox1', element: sandbox1 },
   { path: '/base/tables', name: 'Tables', element: Tables },
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },

@@ -31,6 +31,7 @@ const AddEntry = ({ dynamoTable }) => {
     const [checkboxes, setCheckboxes] = useState({});
     const [toast, setToast] = useState({ visible: false, message: '', type: '' });
     const formRef = useRef(null);
+    const i18nCollection = dynamoTable.replace(/-/g, '_');
 
     const mutation = useMutation({
         mutationFn: async (newEntryData) => {
@@ -158,9 +159,9 @@ const AddEntry = ({ dynamoTable }) => {
                                         key={index}
                                         type="text"
                                         name={key}
-                                        label={t(dynamoTable + '.' + key.toUpperCase())}
+                                        label={t(i18nCollection + '.' + key.toUpperCase())}
                                         aria-describedby={`validationInput${index}Feedback`}
-                                        feedbackInvalid={`${t('description.ppvText')} ${t(dynamoTable + '.' + key.toUpperCase())}.`}
+                                        feedbackInvalid={`${t('description.ppvText')} ${t(i18nCollection + '.' + key.toUpperCase())}.`}
                                         placeholder=""
                                         feedbackValid=""
                                         tooltipFeedback
@@ -176,9 +177,9 @@ const AddEntry = ({ dynamoTable }) => {
                                             key={index}
                                             type="checkbox"
                                             name={key}
-                                            label={t(dynamoTable + '.' + key.toUpperCase())}
+                                            label={t(i18nCollection + '.' + key.toUpperCase())}
                                             aria-describedby={`validationCheckbox${index}Feedback`}
-                                            feedbackInvalid={`${t('description.ppvText')} ${t(dynamoTable + '.' + key.toUpperCase())}.`}
+                                            feedbackInvalid={`${t('description.ppvText')} ${t(i18nCollection + '.' + key.toUpperCase())}.`}
                                             feedbackValid=""
                                             tooltipFeedback
                                             checked={checkboxes[key] || false}
@@ -187,7 +188,7 @@ const AddEntry = ({ dynamoTable }) => {
                                         />
                                         {checkboxes[key] === false && (
                                             <div className="invalid-feedback">
-                                                {t('description.ppvText')} {t(dynamoTable + '.' + key.toUpperCase())}
+                                                {t('description.ppvText')} {t(i18nCollection + '.' + key.toUpperCase())}
                                             </div>
                                         )}
                                     </div>
@@ -200,9 +201,9 @@ const AddEntry = ({ dynamoTable }) => {
                                         key={index}
                                         type="number"
                                         name={key}
-                                        label={t(dynamoTable + '.' + key.toUpperCase())}
+                                        label={t(i18nCollection + '.' + key.toUpperCase())}
                                         aria-describedby={`validationNumber${index}Feedback`}
-                                        feedbackInvalid={`${t('description.ppvText')} ${t(dynamoTable + '.' + key.toUpperCase())}.`}
+                                        feedbackInvalid={`${t('description.ppvText')} ${t(i18nCollection + '.' + key.toUpperCase())}.`}
                                         placeholder=""
                                         feedbackValid=""
                                         tooltipFeedback
@@ -217,9 +218,9 @@ const AddEntry = ({ dynamoTable }) => {
                                         key={index}
                                         type="date"
                                         name={key}
-                                        label={t(dynamoTable + '.' + key.toUpperCase())}
+                                        label={t(i18nCollection + '.' + key.toUpperCase())}
                                         aria-describedby={`validationNumber${index}Feedback`}
-                                        feedbackInvalid={`${t('description.ppvText')} ${t(dynamoTable + '.' + key.toUpperCase())}.`}
+                                        feedbackInvalid={`${t('description.ppvText')} ${t(i18nCollection + '.' + key.toUpperCase())}.`}
                                         placeholder=""
                                         feedbackValid=""
                                         tooltipFeedback

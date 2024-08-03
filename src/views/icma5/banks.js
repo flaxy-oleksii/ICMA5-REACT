@@ -50,7 +50,7 @@ import DynamoDataTable from './DynamoDataTable'
 import AddEntry from './AddEntry'
 
 const queryClient = new QueryClient();
-export const table_accounts = () => {
+export const banks = () => {
 
     const { t } = useTranslation(); const [showTab, setShowTab] = useState(false);
 
@@ -509,4 +509,4 @@ function useCreateEntry() {
 }
 
 
-export default table_accounts
+export default banks
